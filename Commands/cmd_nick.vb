@@ -2,12 +2,12 @@
 Imports Discord
 Imports Discord.WebSocket
 
-Public Class cmd_nick
-    Inherits ModuleBase
+Public Class cmd_nick 'Command currently not working figure out why
+    Inherits ModuleBase(Of CommandContext)
 
     <Command("nick")>
     <RequireBotPermission(GuildPermission.ManageNicknames)>
-    Private Async Function nick(ByVal user As SocketGuildUser, <Remainder> n As String) As Task
+    Public Async Function nick(ByVal user As SocketGuildUser, <Remainder> n As String) As Task
         Dim m = Context.Message.Channel
 
         If DirectCast(Context.Message.Author, SocketGuildUser).GuildPermissions.ChangeNickname Then

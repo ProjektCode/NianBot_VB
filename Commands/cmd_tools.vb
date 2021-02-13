@@ -5,12 +5,12 @@ Imports Discord.WebSocket
 <Group("t")>
 <Summary("Tools for the server owners.")>
 Public Class cmd_tools
-    Inherits ModuleBase
+    Inherits ModuleBase(Of CommandContext)
     Dim mClass As New class_MasterClass
 
 
     <Command("image")>
-    Private Async Function cmdImage() As Task
+    Public Async Function cmdImage() As Task
         Dim m = Context.Message
         Dim u = Context.User
         Dim g = Context.Guild
@@ -83,7 +83,7 @@ Public Class cmd_tools
     End Function
 
     <Command("embed")>
-    Private Async Function cmdEmbed() As Task
+    Public Async Function cmdEmbed() As Task
         Dim m = Context.Message
         Dim u = Context.User
         Dim g = Context.Guild
@@ -117,7 +117,7 @@ Public Class cmd_tools
     End Function
 
     <Command("ids")>
-    Private Async Function cmdIds() As Task
+    Public Async Function cmdIds() As Task
         Dim m = Context.Message
         Dim u = Context.User
         Dim g = Context.Guild
@@ -163,7 +163,7 @@ Public Class cmd_tools
     End Function
 
     <Command("format")>
-    Private Async Function cmdFormat() As Task
+    Public Async Function cmdFormat() As Task
         Dim m = Context.Message
         Dim u = Context.User
         Dim g = Context.Guild

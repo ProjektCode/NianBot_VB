@@ -4,7 +4,7 @@ Imports Discord.WebSocket
 
 <Group("mod")>
 Public Class cmd_mod
-    Inherits ModuleBase
+    Inherits ModuleBase(Of CommandContext)
     Dim masterClass As New class_MasterClass
 
     <Command("kick")>

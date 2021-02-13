@@ -4,7 +4,7 @@ Imports Microsoft.VisualBasic.ApplicationServices
 
 <Group("math")>
 Public Class cmd_math
-    Inherits ModuleBase
+    Inherits ModuleBase(Of CommandContext)
 
 #Region "Add"
 

@@ -26,7 +26,7 @@ Public Class cmd_wallpaper
 
     <Command("host")>
     <Summary("Sends a random image from the hosts' computer")>
-    Private Async Function cmdImage() As Task
+    Public Async Function cmdImage() As Task
         Dim m = Context.Message
         Dim u = Context.User
         Dim g = Context.Guild
@@ -43,7 +43,7 @@ Public Class cmd_wallpaper
 
     <Command("list")>
     <Summary("Gives a list of all of our keywords for our wallpaper command")>
-    Private Async Function cmdList() As Task 'Make it so once the field gets full create a new field.
+    Public Async Function cmdList() As Task 'Make it so once the field gets full create a new field.
         Dim m = Context.Message
         Dim u = Context.User
         Dim g = Context.Guild
@@ -80,31 +80,11 @@ Public Class cmd_wallpaper
         Next
 
         'The add condition within the for loop is only entered when we are
-        'about to exceed to field length. Anything string under the max 
+        'about to exceed to field length. Any string under the max 
         'length would exit the loop without being added. Add it here
         embed.AddField($"List #{row + 1}", words)
 
         Await m.Channel.SendMessageAsync("", False, embed.Build())
-
-#Region "Old Code"
-        'Dim row As Integer = 1
-        'Dim words As String = ""
-        'For Each keyword As String In wall.keywords
-
-        '    words = words + keyword + " **|** "
-
-        '    If words.Length >= 256 Then
-        '        Dim w As String() = Split(words)
-        '        row += 1
-        '        embed.AddField($"List #{row}", words)
-
-        '    End If
-        'Next
-        'embed.AddField("list 1", words)
-
-        'Await m.Channel.SendMessageAsync("", False, embed.Build())
-
-#End Region
     End Function
 
 End Class

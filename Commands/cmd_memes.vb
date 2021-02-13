@@ -3,7 +3,7 @@ Imports Discord.WebSocket
 
 <Group("meme")>
 Public Class cmd_memes
-    Inherits ModuleBase
+    Inherits ModuleBase(Of CommandContext)
 
     Dim path As String = "D:\_Programming\DiscordBots\Nian_Bot-vb\Memes\"
     Dim rand As New Random

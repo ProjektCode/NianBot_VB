@@ -110,7 +110,7 @@
 
 #Region "Misc"
 
-    Public path As String = "D:\Adobe Files\Photoshop Files\Pictures\_Awaiting Render\"
+    Public path As String = "D:\Adobe Files\Photoshop Files\Pictures\"
 #End Region
 
 End Class

@@ -3,7 +3,7 @@ Imports Discord.Commands
 Imports Discord.WebSocket
 
 Public Class cmd_purge
-    Inherits ModuleBase
+    Inherits ModuleBase(Of CommandContext)
 
     <Command("purge")>
     <RequireBotPermission(GuildPermission.ManageMessages)>

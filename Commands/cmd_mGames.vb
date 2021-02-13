@@ -3,7 +3,7 @@ Imports Discord.Commands
 
 <Group("games")>
 Public Class cmd_mGames
-    Inherits ModuleBase
+    Inherits ModuleBase(Of CommandContext)
 
 #Region "war"
     <Command("war")>

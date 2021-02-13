@@ -2,8 +2,8 @@
 Imports Discord
 
 <Group("info")>
-Public Class cmd_info
-    Inherits ModuleBase
+Public Class cmd_info 'Profile command not working. find out why
+    Inherits ModuleBase(Of CommandContext)
     Dim masterClass As New class_MasterClass
 
     <Command("server")>
@@ -43,7 +43,7 @@ Public Class cmd_info
     End Function
 
     <Command("profile")>
-    Private Async Function profileCmd() As Task
+    Public Async Function profileCmd() As Task
 
         Dim guild = Context.Guild
         Dim user = Context.User
