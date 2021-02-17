@@ -2,18 +2,14 @@
 Imports Discord
 
 <Group("info")>
-Public Class cmd_info 'Profile command not working. find out why
+Public Class cmd_info
     Inherits ModuleBase(Of CommandContext)
     Dim masterClass As New class_MasterClass
 
     <Command("server")>
     Public Async Function serverCmd() As Task
-
         Dim g = Context.Guild
-        Dim afk As Integer = g.AFKTimeout
-        Dim seconds As Integer = afk Mod 60
-        Dim minutes As Integer = afk / 60
-        Dim time As Integer = minutes
+
 
         Dim embed As New EmbedBuilder With {
             .Title = $"{g.Name}'s information",
@@ -35,11 +31,9 @@ Public Class cmd_info 'Profile command not working. find out why
         embed.AddField("Preferred Locale",
                 g.PreferredLocale)
         embed.AddField("AFK Timeout Time",
-                $"{time} minutes")
-
+                $"{masterClass.timeOut(g)} minutes")
 
         Await Context.Channel.SendMessageAsync("", False, embed.Build())
-
     End Function
 
     <Command("profile")>
@@ -49,7 +43,7 @@ Public Class cmd_info 'Profile command not working. find out why
         Dim user = Context.User
 
         Dim embed As New EmbedBuilder With {
-            .Title = $"{user.Username}#{user.Discriminator}'s Profile",
+            .Title = $"{user.Username}*#{user.Discriminator}* 's Profile",
             .ImageUrl = "https://i.imgur.com/vc241Ku.jpeg",
             .Description = "Your user profile",
             .Color = New Color(masterClass.randomEmbedColor),
@@ -64,17 +58,13 @@ Public Class cmd_info 'Profile command not working. find out why
         embed.AddField("Your ID(#)",
                 user.Discriminator)
         embed.AddField("Current status",
-                Context.User.Status)
-        embed.AddField("Current Activity",
-                user.Activity)
+                Context.User.Status) 'Keeps saying status offline
         embed.AddField("Avatar URL",
                     user.GetAvatarUrl)
         embed.AddField("Account Creation Date",
-                user.CreatedAt)
-
+                user.CreatedAt.DateTime)
 
         Await Context.Channel.SendMessageAsync("", False, embed.Build())
-
     End Function
 
 End Class

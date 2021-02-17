@@ -9,7 +9,6 @@ Public Class cmd_bot
 
     <Command("hide")>
     Public Async Function cmdHide() As Task
-
         If DirectCast(Context.Message.Author, SocketGuildUser).GuildPermissions.Administrator Then
             masterClass.winHide()
 
@@ -18,7 +17,6 @@ Public Class cmd_bot
             Await Context.Channel.SendMessageAsync("This is only for the bot owner.")
 
         End If
-
     End Function
 
     <Command("show")>
@@ -33,7 +31,6 @@ Public Class cmd_bot
             Await Context.Channel.SendMessageAsync("This is only for the bot owner.")
 
         End If
-
     End Function
 
     <Command("kill")>
@@ -53,7 +50,5 @@ Public Class cmd_bot
             Next
 
         End If
-
     End Function
-
 End Class

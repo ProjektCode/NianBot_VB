@@ -23,7 +23,7 @@ Public Class cmd_tools
                 .Name = b.CurrentUser.Username
             },
             .Title = $"Image Links",
-            .Color = New Discord.Color(mClass.randomEmbedColor),
+            .Color = New Color(mClass.randomEmbedColor),
             .ThumbnailUrl = u.GetAvatarUrl,
             .Timestamp = m.Timestamp,
             .Footer = New EmbedFooterBuilder With {

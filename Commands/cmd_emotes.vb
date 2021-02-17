@@ -40,7 +40,7 @@ Public Class cmd_emotes
                 emotes = String.Empty
             End If
 
-            emotes = emotes + "<:" + emote.Name + $":{emote.Id}>" + $" **{emote.Name}**" + Environment.NewLine
+            emotes = emotes + "<:" + emote.Name + $":{emote.Id}>" + $" ***{emote.Name}***" + Environment.NewLine
         Next
         embed.AddField($"List #{row + 1}", emotes)
 
@@ -48,20 +48,23 @@ Public Class cmd_emotes
 
     End Function
 
-    <Command("search")>
-    Private Async Function cmdSearch(<Remainder> emojiName As Emote) As Task
+    <Command("search")>'Might be a useless command
+    Private Async Function cmdSearch(<Remainder> emojiName As String) As Task
         Dim m = Context.Message
         Dim u = Context.User
         Dim g = Context.Guild
         Dim c = Context.Client
+        Dim eName = $":{emojiName}:"
 
 
 
-
-        Dim emote As Emote = DirectCast(Context.Message.Channel, IGuildChannel).Guild.Emotes
-        If emote.Name = emojiName.Name Then
-            Await m.Channel.SendMessageAsync(emote.Url)
-        End If
+        'Dim emote As Emote = DirectCast(Context.Message.Channel, IGuildChannel).Guild.Emotes
+        For Each e As Emote In DirectCast(Context.Message.Channel, IGuildChannel).Guild.Emotes
+            If e.Name = eName Then
+                Await m.Channel.SendMessageAsync(e.Url)
+                Return
+            End If
+        Next
 
 
         'Dim emote = _client.Guilds.SelectMany(Function(x) x.Emotes).FirstOrDefault(Function(x) _

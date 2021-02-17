@@ -1,6 +1,7 @@
 ﻿Imports System.Runtime.InteropServices
 Imports Discord.Commands
 Imports Discord
+Imports Discord.WebSocket
 
 
 Module Master
@@ -36,7 +37,6 @@ Module Master
 #End Region
 
 #Region "Command Window Options"
-
         <DllImport("Kernel32.dll")>
         Public Shared Function GetConsoleWindow() As IntPtr
 
@@ -80,6 +80,16 @@ Module Master
 
 
 
+#End Region
+
+#Region "Misc"
+        Public Function timeOut(ByVal g As SocketGuild)
+            Dim afk As Integer = g.AFKTimeout
+            Dim seconds As Integer = afk Mod 60
+            Dim minutes As Integer = afk / 60
+            Dim time As Integer = minutes
+            Return time
+        End Function
 #End Region
 
     End Class

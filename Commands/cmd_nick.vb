@@ -11,15 +11,8 @@ Public Class cmd_nick 'Command currently not working figure out why
         Dim m = Context.Message.Channel
 
         If DirectCast(Context.Message.Author, SocketGuildUser).GuildPermissions.ChangeNickname Then
-            If user IsNot Context.Message.Author Or user Is Nothing Then
-                user = Context.Message.Author
-                Await user.ModifyAsync(Sub(u) u.Nickname = n)
-                Await m.SendMessageAsync($"{user.Mention}'s Nickname has been changed.")
-            Else
-                Await user.ModifyAsync(Sub(u) u.Nickname = n)
-                Await m.SendMessageAsync($"{user.Mention}'s Nickname has been changed.")
-
-            End If
+            Await user.ModifyAsync(Sub(u) u.Nickname = n)
+            Await m.SendMessageAsync($"{user.Mention}'s Nickname has been changed.")
         End If
 
     End Function

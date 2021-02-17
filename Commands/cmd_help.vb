@@ -5,10 +5,6 @@ Imports Discord.WebSocket
 Public Class cmd_help
     Inherits ModuleBase(Of CommandContext)
     Dim masterClass As New class_MasterClass
-    Dim _cServer As New CommandService
-
-
-
 
     <Command("help")>
     Public Async Function helpCmd() As Task
@@ -117,7 +113,7 @@ Public Class cmd_help
     End Function
 
 #Region "new help command"
-    'Private Async Function test() As Task
+    'Public Async Function test() As Task
     '    Dim commands As List(Of CommandInfo) = _cServer.Commands.ToList
     '    Dim embedBuilder As EmbedBuilder = New EmbedBuilder()
 

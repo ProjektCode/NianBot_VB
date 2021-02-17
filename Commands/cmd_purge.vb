@@ -23,12 +23,10 @@ Public Class cmd_purge
                 Await ReplyAsync("Nothing to delete.")
             Else
                 Await (TryCast(Context.Channel, ITextChannel)).DeleteMessagesAsync(filteredMessages)
-                Await ReplyAsync($"I've done my job. {count} {(If(count > 1, "messages have", "message has"))} been annihilated.")
+                Await ReplyAsync($"I've done my job. {count} {(If(count > 1, "messages have", "message has"))} been dealt with.")
             End If
-
         Else
             Await Context.Message.Channel.SendMessageAsync("You do not have the required permissions to use this command.")
-
         End If
 
     End Function
