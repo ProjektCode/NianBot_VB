@@ -2,13 +2,12 @@
 Imports Discord.Commands
 Imports Discord.WebSocket
 
-<Group("emotes")>
 Public Class cmd_emotes
     Inherits ModuleBase(Of CommandContext)
     Dim masterClass As New class_MasterClass
     Private ReadOnly _client As New DiscordSocketClient
 
-    <Command("all")>
+    <Command("emotes")>
     <Summary("All guild emotes")>
     Public Async Function guildEmotesCmd() As Task
         Dim m = Context.Message
@@ -45,43 +44,6 @@ Public Class cmd_emotes
         embed.AddField($"List #{row + 1}", emotes)
 
         Await Context.Message.Channel.SendMessageAsync("", False, embed.Build())
-
-    End Function
-
-    <Command("search")>'Might be a useless command
-    Private Async Function cmdSearch(<Remainder> emojiName As String) As Task
-        Dim m = Context.Message
-        Dim u = Context.User
-        Dim g = Context.Guild
-        Dim c = Context.Client
-        Dim eName = $":{emojiName}:"
-
-
-
-        'Dim emote As Emote = DirectCast(Context.Message.Channel, IGuildChannel).Guild.Emotes
-        For Each e As Emote In DirectCast(Context.Message.Channel, IGuildChannel).Guild.Emotes
-            If e.Name = eName Then
-                Await m.Channel.SendMessageAsync(e.Url)
-                Return
-            End If
-        Next
-
-
-        'Dim emote = _client.Guilds.SelectMany(Function(x) x.Emotes).FirstOrDefault(Function(x) _
-        '           x.Name.IndexOf(text, StringComparison.OrdinalIgnoreCase) <> -1)
-
-        'If emote Is Nothing Then
-        '    Await m.Channel.SendMessageAsync("Not found")
-
-        'Else
-        '    Await m.Channel.SendMessageAsync(emote.Url)
-        'End If
-
-
-        'Dim emoji = Nothing
-        'If Emote.TryParse(text, emoji) Then
-        '    Await m.Channel.SendMessageAsync(emoji.Url)
-        'End If
 
     End Function
 

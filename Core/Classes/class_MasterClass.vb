@@ -42,7 +42,7 @@ Module Master
 
         End Function
         <DllImport("User32.dll")>
-        Private Shared Function ShowWindow(ByVal hwd As IntPtr, ByVal cmdShow As Integer) As Boolean
+        Private Shared Function ShowWindow(hwd As IntPtr, cmdShow As Integer) As Boolean
 
         End Function
 
@@ -83,7 +83,7 @@ Module Master
 #End Region
 
 #Region "Misc"
-        Public Function timeOut(ByVal g As SocketGuild)
+        Public Function timeOut(g As SocketGuild)
             Dim afk As Integer = g.AFKTimeout
             Dim seconds As Integer = afk Mod 60
             Dim minutes As Integer = afk / 60

@@ -54,7 +54,7 @@ Public Class cmd_math
 #Region "Divide"
 
     <Command("divide")>
-    Public Async Function cmdDivide(ByVal num1 As Integer, <Remainder> ByVal num2 As Integer) As Task
+    Public Async Function cmdDivide(num1 As Integer, <Remainder> num2 As Integer) As Task
 
         Dim sum = num1 / num2
         Dim user = Context.User

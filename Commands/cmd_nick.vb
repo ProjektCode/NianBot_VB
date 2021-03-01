@@ -7,7 +7,7 @@ Public Class cmd_nick 'Command currently not working figure out why
 
     <Command("nick")>
     <RequireBotPermission(GuildPermission.ManageNicknames)>
-    Public Async Function nick(ByVal user As SocketGuildUser, <Remainder> n As String) As Task
+    Public Async Function nick(user As SocketGuildUser, <Remainder> n As String) As Task
         Dim m = Context.Message.Channel
 
         If DirectCast(Context.Message.Author, SocketGuildUser).GuildPermissions.ChangeNickname Then

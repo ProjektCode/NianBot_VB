@@ -5,7 +5,6 @@ Imports Discord.Commands
 Public Class cmd_mGames
     Inherits ModuleBase(Of CommandContext)
 
-#Region "war"
     <Command("war")>
     Public Async Function warCmd() As Task
         Dim user = Context.User
@@ -30,9 +29,7 @@ Public Class cmd_mGames
         End If
 
     End Function
-#End Region
 
-#Region "Random Number"
     <Command("rnum")>
     Public Async Function randomNum(<Remainder> num As Integer) As Task
         Dim user = Context.User
@@ -49,6 +46,5 @@ Public Class cmd_mGames
         End If
 
     End Function
-#End Region
 
 End Class

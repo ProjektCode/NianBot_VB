@@ -19,12 +19,10 @@ Module Main
 
     Private Async Function RunBotASync() As Task
         Console.WriteLine("Now Loading Bot...")
-
-
         config = MasterConfig.Load
 
         Dim ClientConfig As New DiscordSocketConfig With {
-           .DefaultRetryMode = Discord.RetryMode.AlwaysRetry,
+           .DefaultRetryMode = RetryMode.AlwaysRetry,
             .LogLevel = LogSeverity.Info,
             .WebSocketProvider = WS4NetProvider.Instance
             }
