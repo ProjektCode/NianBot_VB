@@ -27,7 +27,7 @@ Public Class cmd_tools
             .ThumbnailUrl = u.GetAvatarUrl,
             .Timestamp = m.Timestamp,
             .Footer = New EmbedFooterBuilder With {
-                    .Text = "ID Data",
+                    .Text = "Image Data",
                     .IconUrl = g.IconUrl
                 }
             }
@@ -100,7 +100,7 @@ Public Class cmd_tools
             .ThumbnailUrl = u.GetAvatarUrl,
             .Timestamp = m.Timestamp,
             .Footer = New EmbedFooterBuilder With {
-                    .Text = "ID Data",
+                    .Text = "Embed Data",
                     .IconUrl = g.IconUrl
                 }
             }

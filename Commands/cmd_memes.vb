@@ -57,7 +57,7 @@ Public Class cmd_memes
         Dim m As String() =
             {
             "FUUUUUCKKKKK",
-            $"{ a.Mention} has had enough of this shit.",
+            $"{a.Mention} has had enough of this shit.",
             $"{a.Mention} has raged quit this conversation"
             }
         Dim mes = m(rand.Next(0, m.Length))

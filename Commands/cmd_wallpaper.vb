@@ -8,7 +8,7 @@ Public Class cmd_wallpaper
     Dim wall As New class_Wallpapers
     Dim masterClass As New class_MasterClass
 
-    <Command("get")>
+    <Command("search")>
     <Summary("Gives a link of wallpapers with your chosen keyword")>
     Public Async Function wallpaperCmd(<Remainder> text As String) As Task
 

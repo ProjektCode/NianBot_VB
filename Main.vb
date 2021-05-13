@@ -34,6 +34,7 @@ Module Main
         Await Client.LoginAsync(TokenType.Bot, config.token)
         Await Client.StartAsync()
         AddHandler Client.Ready, AddressOf Ready
+        mClass.winHide()
         Await Task.Delay(Timeout.Infinite)
     End Function
 

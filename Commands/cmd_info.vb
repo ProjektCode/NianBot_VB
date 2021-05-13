@@ -41,6 +41,7 @@ Public Class cmd_info
 
         Dim guild = Context.Guild
         Dim user = Context.User
+        Dim channel = Context.Channel
 
         Dim embed As New EmbedBuilder With {
             .Title = $"{user.Username}*#{user.Discriminator}* 's Profile",
@@ -58,13 +59,13 @@ Public Class cmd_info
         embed.AddField("Your ID(#)",
                 user.Discriminator)
         embed.AddField("Current status",
-                Context.User.Status) 'Keeps saying status offline
+                user.Status) 'Keeps saying status offline
         embed.AddField("Avatar URL",
                     user.GetAvatarUrl)
         embed.AddField("Account Creation Date",
                 user.CreatedAt.DateTime)
 
-        Await Context.Channel.SendMessageAsync("", False, embed.Build())
+        Await channel.SendMessageAsync("", False, embed.Build())
     End Function
 
 End Class
