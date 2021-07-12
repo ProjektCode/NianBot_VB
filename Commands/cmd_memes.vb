@@ -1,12 +1,15 @@
-﻿Imports Discord.Commands
+﻿Imports System.Net.Http
+Imports Discord.Commands
 Imports Discord.WebSocket
-
-<Group("meme")>
+Imports Discord
+Imports Newtonsoft.Json.Linq
+'Entire class no longer working
 Public Class cmd_memes
     Inherits ModuleBase(Of CommandContext)
 
     Dim path As String = "D:\_Programming\DiscordBots\Nian_Bot-vb\Memes\"
     Dim rand As New Random
+    Dim masterClass As New class_MasterClass
 
     <Command("rat")>
     Public Async Function rat(user As SocketUser) As Task
@@ -138,6 +141,28 @@ Public Class cmd_memes
     Public Async Function roast(user As SocketUser) As Task
         Dim send = Context.Channel
         Await send.SendFileAsync($"{path + "roast.gif"}", $"Unforseen footage of {user.Mention}")
+    End Function
+
+    <Command("rmeme")>
+    Public Async Function regMeme() As Task
+        Dim message = Context.Message
+        Dim client = New HttpClient()
+        Dim result = Await client.GetStringAsync("https://reddit.com/r/memes/random.json?limit=1")
+        Dim arr As JArray = JArray.Parse(result)
+        Dim post As JObject = JObject.Parse(arr(0)("data")("children")(0)("data").ToString())
+
+        Dim embed As New EmbedBuilder With {
+        .ImageUrl = post("url").ToString,
+        .Color = masterClass.randomEmbedColor,
+        .Title = post("title").ToString,
+        .Url = "https://reddit.com" + post("permalink").ToString,
+        .Footer = New EmbedFooterBuilder With {
+                .Text = $"🗨️{post("num_comments")}⬆️{post("ups")}"
+            }
+        }
+
+        Await message.Author.SendMessageAsync("", False, embed.Build())
+
     End Function
 
 End Class
