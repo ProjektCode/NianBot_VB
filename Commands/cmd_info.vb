@@ -61,7 +61,7 @@ Public Class cmd_info
         embed.AddField("Current status",
                 user.Status) 'Keeps saying status offline
         embed.AddField("Avatar URL",
-                    user.GetAvatarUrl)
+                    user.GetAvatarUrl(ImageFormat.Auto, 512))
         embed.AddField("Account Creation Date",
                 user.CreatedAt.DateTime)
 
