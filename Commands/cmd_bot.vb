@@ -10,7 +10,7 @@ Public Class cmd_bot
     Public Async Function cmdHide() As Task
         Dim author = Context.Message.Author
         If DirectCast(author, SocketGuildUser).GuildPermissions.Administrator Then
-            If author.Id = 248876564698103810 Then
+            If author.Id = 123456789012345678 Then
                 masterClass.winHide()
 
                 Await Context.Channel.SendMessageAsync("Why you trying to hide me?")
@@ -26,7 +26,7 @@ Public Class cmd_bot
         Dim author = Context.Message.Author
 
         If DirectCast(author, SocketGuildUser).GuildPermissions.Administrator Then
-            If author.Id = 248876564698103810 Then
+            If author.Id = 123456789012345678 Then
                 masterClass.winShow()
 
                 Await Context.Channel.SendMessageAsync($"HA {author.Mention} I have returned.")
@@ -40,7 +40,7 @@ Public Class cmd_bot
     Public Async Function cmdKill() As Task
         Dim author = Context.Message.Author
         If DirectCast(author, SocketGuildUser).GuildPermissions.Administrator Then
-            If author.Id = 248876564698103810 Then
+            If author.Id = 123456789012345678 Then
                 For Each p As Process In Process.GetProcesses
                     If p.ProcessName = "NianBot" Then
                         Try
